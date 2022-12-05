@@ -11,6 +11,12 @@
           <ion-label position="floating">
             <ion-icon name="person-outline"></ion-icon> Nome</ion-label>
           <ion-input formControlName="nome"></ion-input>
+          <ng-container *ngFor="let erro of mensagens.nome">
+            <span class="msg.erro"
+            *ngIf="formRegistro.get('nome').hasError(erro.tipo) && (formRegistro.get('nome').dirty || formRegistro.get('nome').touched)">
+              {{erro.mensagem}}
+            </span>
+          </ng-container>
         </ion-item>
       </div>
 

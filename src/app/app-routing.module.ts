@@ -16,6 +16,10 @@ const routes: Routes = [
   },  {
     path: 'esqueceu',
     loadChildren: () => import('./esqueceu/esqueceu.module').then( m => m.EsqueceuPageModule)
+  },
+  {
+    path: 'produtos',
+    loadChildren: () => import('./produtos/produtos.module').then( m => m.ProdutosPageModule)
   }
 
 ];

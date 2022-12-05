@@ -1,5 +1,5 @@
 <ion-content>
-  <div class="login-section ion-padding">
+  <form class="login-section ion-padding" [formGroup] ="formLogin">
     <div class="heading ion-padding">
       <h1>Bem-vindo!</h1>
       <p>Faça seu login para continuar</p>
@@ -9,15 +9,15 @@
         <ion-item>
           <ion-label position="floating">
             <ion-icon name="mail-outline"></ion-icon> email</ion-label>
-          <ion-input type="email"></ion-input>
+          <ion-input formControlName="email" type="email"></ion-input>
         </ion-item>
       </div>
 
       <div class="form-imput">
         <ion-item>
           <ion-label position="floating"><ion-icon name="lock-closed-outline"></ion-icon> senha</ion-label>
-          <ion-input type="password" value="password"></ion-input>
-         
+          <ion-input type="password" value="password" formControlName="senha"></ion-input>
+
         </ion-item>
       </div>
     </div>
@@ -32,5 +32,5 @@
     <ion-button shape="round" routerLink="/registro" routerLinkActive="router-link-active"  class="senha"> Cadastrar nova conta</ion-button>
 
   </div>
-</div>
+</form>
 </ion-content>
