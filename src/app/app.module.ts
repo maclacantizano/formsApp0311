@@ -9,9 +9,10 @@ import { AppComponent } from './app.component';
 
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { Drivers } from '@ionic/storage';
+import { CadastroPipe } from './cadastro.pipe';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, CadastroPipe],
   entryComponents: [],
   imports: [
     BrowserModule,
