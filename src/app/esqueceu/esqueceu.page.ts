@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-esqueceu',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EsqueceuPage implements OnInit {
 
-  constructor() { }
+  formEsqueceuSenha: FormGroup;
+
+  constructor( private formBuilder: FormBuilder) {
+    this.formEsqueceuSenha = this.formBuilder.group({
+      senha: ['', Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(8)])],
+      confirmarSenha: ['',  Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(8)])],
+    });
+  }
 
   ngOnInit() {
+  }
+
+  salvarSenha(){
+    console.log('Formulário: ',this.formEsqueceuSenha.valid);
   }
 
 }
