@@ -1,9 +1,68 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>produtos</ion-title>
+    <ion-title></ion-title>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
+  <ion-card>
+  <form  class="login-section ion-padding" [formGroup]="formProdutos">
+    <div class="heading ion-padding">
+      <h1> Cadastro de Produtos</h1>
+    </div>
+    <ion-item>
+      <ion-label position="floating">
+        <ion-icon name="person-outline"></ion-icon> Nome</ion-label>
+      <ion-input formControlName="nome"></ion-input>
+      <ng-container *ngFor="let erro of mensagens.nome">
+        <span class="msg-erro"
+        *ngIf="formProdutos.get('nome').hasError(erro.tipo) && (formProdutos.get('nome').dirty || formProdutos.get('nome').touched)">
+        {{erro.mensagem}}
+      </span>
+      </ng-container>
+    </ion-item>
+  
+
+    <ion-item>
+      <ion-label position="floating">
+        <ion-icon name="create-outline"></ion-icon> Descrição</ion-label>
+      <ion-input formControlName="descricao"></ion-input>
+      <ng-container *ngFor="let erro of mensagens.descricao">
+        <span class="msg-erro"
+        *ngIf="formProdutos.get('descricao').hasError(erro.tipo) && (formProdutos.get('descricao').dirty || formProdutos.get('descricao').touched)">
+        {{erro.mensagem}}
+      </span>
+      </ng-container>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">
+        <ion-icon name="calendar-outline"></ion-icon> Validade</ion-label>
+      <ion-input formControlName="validade"></ion-input>
+      <ng-container *ngFor="let erro of mensagens.validade">
+        <span class="msg-erro"
+        *ngIf="formProdutos.get('validade').hasError(erro.tipo) && (formProdutos.get('validade').dirty || formProdutos.get('validade').touched)">
+        {{erro.mensagem}}
+      </span>
+      </ng-container>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">
+        <ion-icon name="cash-outline"></ion-icon> Preço</ion-label>
+      <ion-input formControlName="preco"></ion-input>
+      <ng-container *ngFor="let erro of mensagens.preco">
+        <span class="msg-erro"
+        *ngIf="formProdutos.get('preco').hasError(erro.tipo) && (formProdutos.get('preco').dirty || formProdutos.get('preco').touched)">
+        {{erro.mensagem}}
+      </span>
+      </ng-container>
+    </ion-item>
+
+  <ion-button  shape="round" class="login-button" expand="block" (click)="salvarProdutos()">SALVAR</ion-button>
+</form>
+</ion-card>
 
 </ion-content>
+
